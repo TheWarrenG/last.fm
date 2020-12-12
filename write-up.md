@@ -84,13 +84,13 @@ We now turn our attention to the mysterious `val` column. Unfortunately, the sam
 
 You may be wondering if the `val` column corresponds to the `count` field from the sample response from `track.getTopTags`. Let us observe the distribution of the `val` column:
 
-![less_than_10](less_than_10.jpg)
+![less_than_10](visualizations/less_than_10.jpg)
 
 As we can see, there are almost 1 million tags that have the value 0 along with hundreds of thousands of tags that also have relatively small values. I would imagine that the top tags for a track would not have a count of 0. Even if the track had no tags, then it would be more reasonable for the last.fm API to return an empty result instead of a tag with count 0. Thus, it seems unlikely that the `val` column refers to the `count` field from the sample response from `track.getTopTags`.
 
 However, there still may be a relationship between a tag's popularity and the value associated with the track. We will quantify a tag's popularity using the number of tracks that contain the tag. We first take a look at the distribution of the number of tracks that contain a certain tag.
 
-![heavy_right_skew](heavy_right_skew.jpg)
+![heavy_right_skew](visualizations/heavy_right_skew.jpg)
 
 This histogram seems to suggest that most tags do not have many tracks tagged with the corresponding tag. For instance, we can take a look at some tags that only have one track tagged:
 - #4
@@ -101,17 +101,17 @@ This histogram seems to suggest that most tags do not have many tracks tagged wi
 
 We now display the more popular tags:
 
-![top_10_tags](top_10_tags.jpg)
+![top_10_tags](visualizations/top_10_tags.jpg)
 
 As we can see, the tags that are tagged by more tracks are the tags that are more likely to be displayed on the last.fm website for a given track. In other words, we are more likely to find a track tagged with "rock" instead of "#4" on last.fm. To help with our analysis, we will omit any tags with less than 10000 associated tracks. We now display the updated histogram from before.
 
-![filtered_tags](filtered_tags.jpg)
+![filtered_tags](visualizations/filtered_tags.jpg)
 
 This histogram looks much better than before. We still observe that there is a right skew, but it is acceptable enough for us to do some rudimentary analysis.
 
 We now plot the average `val` for each tag against the number of tracks with the given tag:
 
-![average_val_vs_count](average_val_vs_count.jpg)
+![average_val_vs_count](visualizations/average_val_vs_count.jpg)
 
 We see that there is a weak positive trend where a tag with more associated tracks will have a higher average `val` value. Barring any mention of correlation does not imply causation, a correlation coefficient of 0.16 is also too weak for any meaningful discussion. As a result, we cannot say that there is any significant relationship between the popularity of a tag and the average `val` of a tag.
 
