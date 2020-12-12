@@ -1,0 +1,3 @@
+For this project, we will be visualizing the [Last.fm dataset](http://millionsongdataset.com/lastfm/) that can be found as part of the [Million Songs Dataset](http://millionsongdataset.com)(MSD). The Last.fm dataset was released on October 20, 2011. The dataset contains information on the tags found on different tracks as well as the similarity measurements between different tracks from the [last.fm](https://www.last.fm/).
+
+Any code used to create the visualizations will be included in the accompanying Jupyter Notebook. The write-up.md file is essentially the Jupyter Notebook file without any code.
